@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "testleak"
+version = "0.1.0"
+description = "Test pollution detector — find leaked env vars, mutated globals, and dirty state"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+keywords = ["testing", "pytest", "flaky-tests", "pollution", "debugging"]
+dependencies = [
+    "pytest>=7.0",
+    "typer>=0.9",
+]
+
+[project.entry-points.pytest11]
+testleak = "testleak_plugin"
+
+[project.scripts]
+testleak = "testleak_cli:app"
+
+[project.urls]
+Homepage = "https://github.com/testleak/testleak"
+Documentation = "https://testleak.dev"
